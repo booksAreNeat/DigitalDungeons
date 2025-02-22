@@ -1,5 +1,7 @@
 import javax.swing.*;
-import java.awt.*;    
+import java.awt.*; 
+import java.awt.Dimension;
+
 public class gui extends JFrame{
     guard player = new guard(lives.THREE, 5, 5, 5, 5, 5, 5, "");
     CardLayout cardlayout = new CardLayout();
@@ -31,9 +33,10 @@ public class gui extends JFrame{
 
     gui(){
         startButton.setBounds(150, 300, 1000, 500);
+        startButton.setPreferredSize(new Dimension(200, 35));
         nameField.setPreferredSize(new Dimension(200, 30));
-        enterName.setFont(new Font("Verdana", Font.PLAIN, 35));
-        greetings.setFont(new Font("Verdana", Font.PLAIN, 35));
+        enterName.setFont(new Font("Verdana", Font.PLAIN, 45));
+        greetings.setFont(new Font("Verdana", Font.PLAIN, 45));
 
         welcome.setBackground(Color.white);
         start.setBackground(Color.white);
@@ -61,36 +64,44 @@ public class gui extends JFrame{
 
         startButton.addActionListener((e) ->{
             cardlayout.show(mainPanel, "start");
+            startButton.setPreferredSize(new Dimension(200, 30));
         });
 
         nameButton.addActionListener((e) ->{
             player.setName(nameField.getText());
+            nameButton.setPreferredSize(new Dimension(200,30));
                 greetings.setText("Greetings " + player.getName() + "! Let's Play The Game!");
                 start.add(greetings);
+                continueButton1.setPreferredSize(new Dimension(200, 30));
                 start.add(continueButton);
         });
 
         continueButton.addActionListener((e) ->{
+            continueButton.setPreferredSize(new Dimension(200, 30));
             cardlayout.show(mainPanel, "textblock1");
         });
 
         ignoreButton.addActionListener((e) ->{
             ignoreAnswer.setText("You have drank yourself into a stupor whilst chaos reigns outside. You have lost the game");
+            ignoreButton.setPreferredSize(new Dimension(200, 30));
             textblock1.add(ignoreAnswer);
             textblock1.add(endButton);
         });
 
         investigateButton.addActionListener((e) ->{
+            investigateButton.setPreferredSize(new Dimension(200,30));
             investigateAnswer.setText("You grab your weapon off the rack by the door and leave to investigate the noise");
             textblock1.add(investigateAnswer);
             textblock1.add(continueButton1);
         });
 
         continueButton1.addActionListener((e) ->{
+            continueButton1.setPreferredSize(new Dimension(200,30));
             cardlayout.show(mainPanel, "textblock2");
         });
 
         endButton.addActionListener((e) -> {
+            endButton.setPreferredSize(new Dimension(200, 30));
             cardlayout.show(mainPanel, "lose");
         });
 
