@@ -1,39 +1,40 @@
 import javax.swing.*;
-import java.awt.*; 
-import java.awt.event.*;     
-public class gui implements ActionListener {
+import java.awt.*;      
+public class gui extends JFrame {
+    CardLayout cardlayout = new CardLayout();
+    JPanel mainPanel = new JPanel(cardlayout);
+    JPanel card1 = new JPanel();
+    JPanel card2 = new JPanel();
 
-    private int count = 0;
-    private JLabel label;
-    private JFrame frame;
-    private JPanel panel;
+    JButton button1 = new JButton("Go to card 2");
+    JButton button2 = new JButton("Go to card 1");
 
-    public gui(){
-        frame = new JFrame();
+    gui(){
+        card1.setBackground(Color.red);
+        card2.setBackground(Color.blue);
 
-        JButton button = new JButton("Click me");
-        button.addActionListener(this);
-        label = new JLabel("Number of clicks: " + count);   
+        card1.add(button1);
+        card2.add(button2);
 
-        panel = new JPanel();
-        panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
-        panel.setLayout(new GridLayout(0, 1));
-        panel.add(button);
-        panel.add(label);
+        mainPanel.add(card1, "card1");
+        mainPanel.add(card2, "card2");
 
-        frame.add(panel, BorderLayout.CENTER);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setTitle("Helping Hjem");
-        frame.pack();
-        frame.setVisible(true);
+        button1.addActionListener((e) ->{
+            cardlayout.show(mainPanel, "card2");
+        });
+
+        button2.addActionListener((e) ->{
+            cardlayout.show(mainPanel, "card1");
+        });
+
+        add(mainPanel);
+        setSize(300,300);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setVisible(true);
     }
+
     public static void main(String args[]){
         new gui();
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e){
-        count ++;
-        label.setText("Number of clicks: " + count);
     }
 }
