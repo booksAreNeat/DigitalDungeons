@@ -1,17 +1,13 @@
 import javax.swing.*;
-import java.awt.*; 
-import java.awt.Dimension;
+import java.awt.*;
 
 public class gui extends JFrame{
     guard player = new guard("BOB", lives.THREE, Dice.rollDice(20), Dice.rollDice(20), Dice.rollDice(20), Dice.rollDice(20), Dice.rollDice(20), Dice.rollDice(20));
     CardLayout cardlayout = new CardLayout();
     JPanel mainPanel = new JPanel(cardlayout);
 
-    JPanel welcome = new JPanel();
-    JPanel start = new JPanel()
-    
+    JPanel welcome = new JPanel()
     {
-
         @Override
         protected void paintComponent(Graphics g)
         {
@@ -19,8 +15,6 @@ public class gui extends JFrame{
             super.paintComponent(g);
             ImageIcon imageIcon = new ImageIcon("C:\\Users\\abste\\OneDrive\\Desktop\\Computing\\25hack\\DigitalDungeons\\town.jpeg");
             Image image = imageIcon.getImage();
-            setPreferredSize(new Dimension(1500, 1000));
-            System.out.println("poopy");
 
             if (image != null)
             {
@@ -34,8 +28,75 @@ public class gui extends JFrame{
         }
 
     };
-    JPanel lose = new JPanel();
-    JPanel textblock1 = new JPanel();
+
+    JPanel start = new JPanel()
+    
+    {
+        @Override
+        protected void paintComponent(Graphics g)
+        {
+
+            super.paintComponent(g);
+            ImageIcon imageIcon = new ImageIcon("C:\\Users\\abste\\OneDrive\\Desktop\\Computing\\25hack\\DigitalDungeons\\town.jpeg");
+            Image image = imageIcon.getImage();
+            setPreferredSize(new Dimension(1500, 1000));
+
+            if (image != null)
+            {
+
+                int x = (getWidth() - image.getWidth(null)) / 2;
+                int y = (getHeight() - image.getHeight(null)) / 2;
+                g.drawImage(image, x, y, null);
+
+            }
+
+        }
+
+    };
+
+    JPanel lose = new JPanel(){
+        @Override
+        protected void paintComponent(Graphics g)
+        {
+
+            super.paintComponent(g);
+            ImageIcon imageIcon = new ImageIcon("C:\\Users\\abste\\OneDrive\\Desktop\\Computing\\25hack\\DigitalDungeons\\town.jpeg");
+            Image image = imageIcon.getImage();
+
+            if (image != null)
+            {
+
+                int x = (getWidth() - image.getWidth(null)) / 2;
+                int y = (getHeight() - image.getHeight(null)) / 2;
+                g.drawImage(image, x, y, null);
+
+            }
+
+        }
+
+    };
+
+    JPanel textblock1 = new JPanel(){
+        @Override
+        protected void paintComponent(Graphics g)
+        {
+
+            super.paintComponent(g);
+            ImageIcon imageIcon = new ImageIcon("C:\\Users\\abste\\OneDrive\\Desktop\\Computing\\25hack\\DigitalDungeons\\nobugbear.jpeg");
+            Image image = imageIcon.getImage();
+
+            if (image != null)
+            {
+
+                int x = (getWidth() - image.getWidth(null)) / 2;
+                int y = (getHeight() - image.getHeight(null)) / 2;
+                g.drawImage(image, x, y, null);
+
+            }
+
+        }
+
+    };
     JPanel textblock2 = new JPanel();
 
     JTextField nameField = new JTextField();
@@ -43,7 +104,10 @@ public class gui extends JFrame{
     JLabel enterName = new JLabel("Enter your name: ");
     JLabel greetings = new JLabel("", JLabel.CENTER);
     JLabel gameOver = new JLabel("You lose!! Ha ha, would you like to play again?");
-    JLabel intro = new JLabel("After a long shift " + player.getName() + ", the guard captain is off duty and drinking in the local tavern, The Wandering Trader. The atmosphere is cosy with a fire roaring in the grate. There are torches on the wall giving the large space a warm glow with the occasional flicker. " + player.getName() + " is chatting with the bartender and owner of the tavern, Deiter Haartman, a male half-elf. Suddenly there is a commotion outside, what do you do?");
+    JLabel intro = new JLabel("After a long shift " + player.getName() + ", the guard captain is off duty and drinking in the local tavern, The Wandering Trader. The atmosphere");
+    JLabel intro2 = new JLabel("is cosy with a fire roaring in the grate. There are torches on the wall giving the large space a warm glow with the occasional");
+    JLabel intro3 = new JLabel("flicker. " + player.getName() + " is chatting with the bartender and owner of the tavern, Deiter Haartman, a male half-elf. Suddenly there is a");
+    JLabel intro4 = new JLabel("commotion outside, what do you do?");
     JLabel ignoreAnswer = new JLabel("");
     JLabel investigateAnswer = new JLabel("");
 
@@ -62,6 +126,19 @@ public class gui extends JFrame{
         nameField.setPreferredSize(new Dimension(200, 30));
         enterName.setFont(new Font("Verdana", Font.PLAIN, 45));
         greetings.setFont(new Font("Verdana", Font.PLAIN, 45));
+        intro.setPreferredSize(new Dimension(1450, 50));
+        intro.setFont(new Font("Verdana", Font.BOLD, 20));
+        intro.setForeground(Color.DARK_GRAY);
+        intro2.setPreferredSize(new Dimension(1450, 50));
+        intro2.setFont(new Font("Verdana", Font.BOLD, 20));
+        intro3.setPreferredSize(new Dimension(1450, 50));
+        intro3.setFont(new Font("Verdana", Font.BOLD, 20));
+        intro4.setPreferredSize(new Dimension(1450, 50));
+        intro4.setFont(new Font("Verdana", Font.BOLD, 20));
+        ignoreAnswer.setPreferredSize(new Dimension(1450, 50));
+        ignoreAnswer.setFont(new Font("Verdana", Font.BOLD, 20));
+        investigateAnswer.setPreferredSize(new Dimension(1450, 50));
+        investigateAnswer.setFont(new Font("Verdana", Font.BOLD, 20));
 
         welcome.setBackground(Color.white);
         start.setBackground(Color.white);
@@ -76,6 +153,9 @@ public class gui extends JFrame{
         start.add(greetings);
 
         textblock1.add(intro);
+        textblock1.add(intro2);
+        textblock1.add(intro3);
+        textblock1.add(intro4);
         textblock1.add(ignoreButton);
         textblock1.add(investigateButton);
         textblock1.add(ignoreAnswer);
