@@ -3,15 +3,13 @@ public class guard extends character{
     private int charisma;
     private int dexterity;
     private int wisdom;
-    private String name;
 
-    public guard(lives hearts, int strength, int defence, int intelligence, int charisma, int dexterity, int wisdom, String name){
-        super(hearts, strength, defence);
+    public guard(String name, lives hearts, int strength, int defence, int intelligence, int charisma, int dexterity, int wisdom){
+        super(name, hearts, strength, defence);
         this.intelligence = intelligence;
         this.charisma = charisma;
         this.dexterity = dexterity;
         this.wisdom = wisdom;
-        this.name = name;
     }
 
     public int getIntelligence() {
@@ -44,13 +42,5 @@ public class guard extends character{
 
     public void setWisdom(int wisdom) {
         this.wisdom = wisdom;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }

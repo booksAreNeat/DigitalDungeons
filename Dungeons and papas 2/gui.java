@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.Dimension;
 
 public class gui extends JFrame{
-    guard player = new guard(lives.THREE, 5, 5, 5, 5, 5, 5, "");
+    guard player = new guard("BOB", lives.THREE, Dice.rollDice(20), Dice.rollDice(20), Dice.rollDice(20), Dice.rollDice(20), Dice.rollDice(20), Dice.rollDice(20));
     CardLayout cardlayout = new CardLayout();
     JPanel mainPanel = new JPanel(cardlayout);
 
