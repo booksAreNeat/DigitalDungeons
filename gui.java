@@ -206,8 +206,9 @@ public class gui extends JFrame{
         startButton.setPreferredSize(new Dimension(200, 35));
 
         nameField.setPreferredSize(new Dimension(200, 30));
-        enterName.setFont(new Font("Verdana", Font.PLAIN, 45));
-        greetings.setFont(new Font("Verdana", Font.PLAIN, 45));
+        enterName.setFont(new Font("Verdana", Font.BOLD, 30));
+        enterName.setPreferredSize(new Dimension(500, 30));
+        greetings.setFont(new Font("Verdana", Font.BOLD, 45));
         intro.setPreferredSize(new Dimension(1450, 50));
         intro.setFont(new Font("Verdana", Font.BOLD, 20));
         intro2.setPreferredSize(new Dimension(1450, 50));
@@ -271,6 +272,7 @@ public class gui extends JFrame{
         textblock4.add(answer4);
 
         textblock5.add(congrats);
+        textblock5.add(endButton);
 
         mainPanel.add(welcome, "welcome");
         mainPanel.add(start, "start");
