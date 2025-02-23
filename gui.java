@@ -8,7 +8,32 @@ public class gui extends JFrame{
     JPanel mainPanel = new JPanel(cardlayout);
 
     JPanel welcome = new JPanel();
-    JPanel start = new JPanel();
+    JPanel start = new JPanel()
+    
+    {
+
+        @Override
+        protected void paintComponent(Graphics g)
+        {
+
+            super.paintComponent(g);
+            ImageIcon imageIcon = new ImageIcon("C:\\Users\\abste\\OneDrive\\Desktop\\Computing\\25hack\\DigitalDungeons\\town.jpeg");
+            Image image = imageIcon.getImage();
+            setPreferredSize(new Dimension(1500, 1000));
+            System.out.println("poopy");
+
+            if (image != null)
+            {
+
+                int x = (getWidth() - image.getWidth(null)) / 2;
+                int y = (getHeight() - image.getHeight(null)) / 2;
+                g.drawImage(image, x, y, null);
+
+            }
+
+        }
+
+    };
     JPanel lose = new JPanel();
     JPanel textblock1 = new JPanel();
     JPanel textblock2 = new JPanel();
